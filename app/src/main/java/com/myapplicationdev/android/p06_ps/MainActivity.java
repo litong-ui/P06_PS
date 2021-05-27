@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Fragment> al;
-    FragmentPagerAdapter adapter;
+    MyFragmentPagerAdapter adapter;
     ViewPager vPager;
 
     Button btnClose;
@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         al.add(new Frag2());
         al.add(new Frag3());
 
-//        adapter = new FragmentPagerAdapter(fm, al);
-//
-//        vPager.setAdapter(adapter);
+        adapter = new MyFragmentPagerAdapter(fm, al);
+
+        vPager.setAdapter(adapter);
 
         btnClose = findViewById(R.id.button);
         btnClose.setOnClickListener(new View.OnClickListener() {
