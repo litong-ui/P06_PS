@@ -6,5 +6,5 @@
     <item android:id="@+id/action_Random"
         android:title="Random"/>
     <item android:id="@+id/action_next"
-        android:title="Nest"/>
+        android:title="Next"/>
 </menu>
