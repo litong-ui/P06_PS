@@ -40,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         vPager.setAdapter(adapter);
 
         btnClose = findViewById(R.id.button);
-//        btnClose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
