@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".Frag2"
     android:orientation="vertical"
-    android:background="#97EF40">
+    android:background="#97EF40"
+    android:id="@+id/linearLayout2">
 
     <TextView
         android:id="@+id/textView2"

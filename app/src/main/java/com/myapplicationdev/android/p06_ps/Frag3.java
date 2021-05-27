@@ -1,7 +1,6 @@
 package com.myapplicationdev.android.p06_ps;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Random;
+
 
 public class Frag3 extends Fragment {
 
@@ -31,7 +33,9 @@ public class Frag3 extends Fragment {
         btnChangeColor3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ll3.setBackgroundColor(Color.parseColor("#97EF40"));
+                Random rnd = new Random();
+                int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                ll3.setBackgroundColor(color);
             }
         });
         return view;
