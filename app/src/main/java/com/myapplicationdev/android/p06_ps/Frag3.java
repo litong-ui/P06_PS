@@ -1,5 +1,6 @@
 package com.myapplicationdev.android.p06_ps;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -30,7 +31,7 @@ public class Frag3 extends Fragment {
         btnChangeColor3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ll3.setBackground(Drawable.createFromPath("#97EF40"));
+                ll3.setBackgroundColor(Color.parseColor("#97EF40"));
             }
         });
         return view;
