@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,11 +77,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_next:
-                Intent intentNext = new Intent(this, Frag3.class);
-                startActivity(intentNext);
+                int max = vPager.getChildCount();
+                if(vPager.getCurrentItem() < max - 1) {
+                    int nextPage = vPager.getCurrentItem() + 1;
+                    vPager.setCurrentItem(nextPage, true);
+                }
+                break;
             case R.id.action_previous:
-                Intent intentPrev = new Intent(this, Frag1.class);
-                startActivity(intentPrev);
+                if(vPager.getCurrentItem() > 0) {
+                    int previousPage = vPager.getCurrentItem() -1;
+                    vPager.setCurrentItem(previousPage, true);
+                }
+                break;
+            case R.id.action_Random:
+                Random rnd = new Random();
+                int page = rnd.nextInt(3);
+                vPager.setCurrentItem(page, true);
         }
         return (super.onOptionsItemSelected(item));
     }
