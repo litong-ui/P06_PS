@@ -7,8 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         vPager.setAdapter(adapter);
 
         btnClose = findViewById(R.id.button);
-
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,32 +51,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
     @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences prefs = this.getSharedPreferences("page", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("page", vPager.getCurrentItem());
-        editor.commit();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_next:
+                Intent intentNext = new Intent(this, Frag3.class);
+                startActivity(intentNext);
+            case R.id.action_previous:
+                Intent intentPrev = new Intent(this, Frag1.class);
+                startActivity(intentPrev);
+        }
+        return (super.onOptionsItemSelected(item));
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences prefs = this.getSharedPreferences("page", Context.MODE_PRIVATE);
-        int page = prefs.getInt("page", 0);
-        vPager.setCurrentItem(page, true);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
 }
